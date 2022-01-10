@@ -1,8 +1,10 @@
-import React from 'react';
-import { StyledContainer } from './Container.styles';
+import styled from 'styled-components';
 
-const Container = ({ children }) => {
-  return <StyledContainer>{children}</StyledContainer>;
-};
+export const Container = styled.div`
+  width: min(100%, 1000px);
+  margin: 0 auto;
 
-export default Container;
+  @media (max-width: 1024px) {
+    padding: 0 20px;
+  }
+`;

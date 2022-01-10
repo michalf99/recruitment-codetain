@@ -4,7 +4,8 @@ export const theme = {
     lightBlue: '#5C95F4',
     blue: '#2979FF',
     shadowBlue: '#4B63E6',
-    black: '#070707',
+    black: '#707070',
+    gray: '#CFCFCF',
   },
   fontSizes: {
     desktop: {
