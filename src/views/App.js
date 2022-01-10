@@ -1,11 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'assets/styles/theme';
 import { GlobalStyle } from 'assets/styles/GlobalStyle';
 
 import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
-import Container from 'components/templates/Container/Container';
+import Home from './Home/Home';
+import NotFound from './NotFound/NotFound';
 
 const App = () => {
   return (
@@ -13,9 +14,10 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <MainTemplate>
-          <Container>
-            <h1>App</h1>
-          </Container>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </MainTemplate>
       </ThemeProvider>
     </Router>
