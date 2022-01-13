@@ -7,18 +7,28 @@ import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
 import Home from './Home/Home';
 import NotFound from './NotFound/NotFound';
+import About from './About/About';
+import { ErrorProvider } from 'hooks/useError';
+import ErrorTemplate from 'components/templates/ErrorTemplate/ErrorTemplate';
+import FavoriteMovie from './FavoriteMovie/FavoriteMovie';
 
 const App = () => {
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <MainTemplate>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </MainTemplate>
+        <ErrorProvider>
+          <GlobalStyle />
+          <ErrorTemplate>
+            <MainTemplate>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/movie/:id" element={<FavoriteMovie />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </MainTemplate>
+          </ErrorTemplate>
+        </ErrorProvider>
       </ThemeProvider>
     </Router>
   );
