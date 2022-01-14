@@ -14,9 +14,6 @@ export const Wrapper = styled.article`
 export const Icon = styled.img`
   display: block;
   height: 75px;
-  margin-bottom: 50px;
-`;
-
-export const Description = styled.p`
-  color: ${({ theme }) => theme.colors.black};
+  max-width: 50%;
+  margin-bottom: ${({ isTechnology }) => (isTechnology ? '20px' : '50px')};
 `;

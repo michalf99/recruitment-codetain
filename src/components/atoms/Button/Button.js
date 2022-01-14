@@ -7,7 +7,7 @@ export const Button = styled.button`
   color: ${({ theme, isPrimary }) => (isPrimary ? theme.colors.white : theme.colors.blue)};
   font-size: ${({ theme }) => theme.fontSizes.desktop.s};
   box-shadow: 3px 2px 10px ${({ theme, isPrimary }) => (isPrimary ? theme.colors.blue : theme.colors.white)};
-  border: none;
+  border: ${({ isBordered, theme }) => (isBordered ? `2px solid ${theme.colors.black}` : 'none')};
   border-radius: 5px;
   text-transform: uppercase;
   cursor: pointer;

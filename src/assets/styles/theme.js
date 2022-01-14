@@ -6,6 +6,7 @@ export const theme = {
     shadowBlue: '#4B63E6',
     black: '#707070',
     gray: '#CFCFCF',
+    error: '#FF8383',
   },
   fontSizes: {
     desktop: {
