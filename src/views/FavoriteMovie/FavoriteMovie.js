@@ -1,13 +1,15 @@
-import React, { useCallback, useState, useEffect } from 'react';
+import React, { useCallback, useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import request from 'helpers/request';
 import { useError } from 'hooks/useError';
 
 import Loader from 'components/atoms/Loader/Loader';
-import { Wrapper } from './FavoriteMovie.styles';
+import { ReactComponent as FavoriteIcon } from 'assets/icons/favorite.svg';
+import { DetailsWrapper, Info, StyledButton } from './FavoriteMovie.styles';
 import { Title } from 'components/atoms/Title/Title';
 import { Container } from 'components/templates/Container/Container';
 import { Description } from 'components/atoms/Description/Description';
+import { FavoriteContext } from 'context/favoriteContext';
 
 const FavoriteMovie = () => {
   const { id } = useParams();
@@ -25,6 +27,7 @@ const FavoriteMovie = () => {
         throw new Error();
       }
 
+      data['id'] = +id;
       setMovie(data);
     } catch {
       dispatchError(
@@ -39,22 +42,37 @@ const FavoriteMovie = () => {
     fetchMovieById();
   }, [fetchMovieById]);
 
+  const { state, dispatch } = useContext(FavoriteContext);
   const { title, director, producer, release_date, opening_crawl } = movie;
+  const movieAlreadyInFavorite = state.some((swmovie) => swmovie.id === movie.id);
+  const handleButton = (isInFavorite) => {
+    if (isInFavorite) {
+      return dispatch({ type: 'REMOVE_MOVIE', payload: movie.id });
+    } else {
+      return dispatch({ type: 'ADD_MOVIE', payload: movie });
+    }
+  };
 
   return (
-    <Wrapper>
+    <>
       {!Object.keys(movie).length ? (
         <Loader isFullScreen />
       ) : (
         <Container>
-          <Title>{title}</Title>
-          <span>{release_date}</span>
-          <Description>director: {director}</Description>
-          <Description>producer: {producer}</Description>
+          <DetailsWrapper>
+            <Title>{title}</Title>
+            <StyledButton className={`${movieAlreadyInFavorite ? 'active' : ''}`} onClick={() => handleButton(movieAlreadyInFavorite)}>
+              <FavoriteIcon />
+            </StyledButton>
+            <Info>release date: {release_date}</Info>
+            <Info>director: {director}</Info>
+            <Info>producer: {producer}</Info>
+          </DetailsWrapper>
+
           <Description>{opening_crawl}</Description>
         </Container>
       )}
-    </Wrapper>
+    </>
   );
 };
 
