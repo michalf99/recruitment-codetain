@@ -1,6 +1,9 @@
 import React, { createContext, useReducer } from 'react';
 import favoriteReducer from './favoriteReducer';
-const initialState = localStorage.getItem('movies').length ? JSON.parse(localStorage.getItem('movies')) : [];
+
+const parsedMovies = JSON.parse(localStorage.getItem('movies'));
+const initialState = parsedMovies.length ? parsedMovies : [];
+
 export const FavoriteContext = createContext();
 
 const FavoriteContextProvider = ({ children }) => {
