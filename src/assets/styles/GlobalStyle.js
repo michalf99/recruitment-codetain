@@ -18,4 +18,13 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
+  button {
+    padding: 0;
+    background-color: transparent;
+    color: ${({ theme }) => theme.colors.blue};
+    font-size: ${({ theme }) => theme.fontSizes.desktop.l};
+    border: none;
+    cursor: pointer;
+  }
+
 `;
