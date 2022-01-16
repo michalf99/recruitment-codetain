@@ -2,7 +2,7 @@ import React, { createContext, useReducer } from 'react';
 import favoriteReducer from './favoriteReducer';
 
 const parsedMovies = JSON.parse(localStorage.getItem('movies'));
-const initialState = parsedMovies.length ? parsedMovies : [];
+const initialState = parsedMovies && parsedMovies.length ? parsedMovies : [];
 
 export const FavoriteContext = createContext();
 
