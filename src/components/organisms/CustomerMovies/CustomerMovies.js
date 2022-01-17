@@ -17,9 +17,8 @@ const CustomerMovies = () => {
       </MovieWrapper>
     ))
   ) : (
-    <p>you dont have favorite movies yet</p>
+    <p>you dont have any favorite movies yet</p>
   );
-  console.log(isOpen);
   return (
     <Wrapper isOpen={isOpen}>
       <OpenCloseButton isOpen={isOpen} onClick={() => setIsOpen((prev) => !prev)}>

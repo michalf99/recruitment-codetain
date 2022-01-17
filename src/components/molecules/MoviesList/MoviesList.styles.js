@@ -14,11 +14,11 @@ export const Wrapper = styled.div`
     &::before {
       content: '';
       position: absolute;
-      top: -5%;
-      left: -5%;
-      width: 110%;
-      height: 110%;
-      border-radius: 20px;
+      top: -1%;
+      left: -1%;
+      width: 102%;
+      height: 102%;
+      border-radius: 18px;
       background-color: ${({ theme }) => theme.colors.blue};
       opacity: 0;
       transition: 0.3s;
