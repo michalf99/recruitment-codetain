@@ -16,8 +16,8 @@ import FavoriteContextProvider from 'context/favoriteContext';
 const App = () => {
   return (
     <Router>
-      <FavoriteContextProvider>
-        <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <FavoriteContextProvider>
           <ErrorProvider>
             <GlobalStyle />
             <ErrorTemplate>
@@ -31,8 +31,8 @@ const App = () => {
               </MainTemplate>
             </ErrorTemplate>
           </ErrorProvider>
-        </ThemeProvider>
-      </FavoriteContextProvider>
+        </FavoriteContextProvider>
+      </ThemeProvider>
     </Router>
   );
 };

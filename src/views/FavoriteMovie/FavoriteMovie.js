@@ -61,7 +61,10 @@ const FavoriteMovie = () => {
         <Container>
           <DetailsWrapper>
             <Title>{title}</Title>
-            <StyledButton className={`${movieAlreadyInFavorite ? 'active' : ''}`} onClick={() => handleButton(movieAlreadyInFavorite)}>
+            <StyledButton
+              data-testid="favoriteButton"
+              className={`${movieAlreadyInFavorite ? 'active' : ''}`}
+              onClick={() => handleButton(movieAlreadyInFavorite)}>
               <FavoriteIcon />
             </StyledButton>
             <Info>release date: {release_date}</Info>
