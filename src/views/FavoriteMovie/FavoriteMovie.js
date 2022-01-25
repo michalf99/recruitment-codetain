@@ -47,9 +47,9 @@ const FavoriteMovie = () => {
   const movieAlreadyInFavorite = state.some((swmovie) => swmovie.id === movie.id);
   const handleButton = (isInFavorite) => {
     if (isInFavorite) {
-      return dispatch({ type: 'REMOVE_MOVIE', payload: movie.id });
+      dispatch({ type: 'REMOVE_MOVIE', payload: movie.id });
     } else {
-      return dispatch({ type: 'ADD_MOVIE', payload: movie });
+      dispatch({ type: 'ADD_MOVIE', payload: movie });
     }
   };
 
