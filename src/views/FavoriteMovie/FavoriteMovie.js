@@ -52,7 +52,6 @@ const FavoriteMovie = () => {
       dispatch({ type: 'ADD_MOVIE', payload: movie });
     }
   };
-
   return (
     <>
       {!Object.keys(movie).length ? (

@@ -17,10 +17,5 @@ export const theme = {
       m: '18px',
       s: '16px',
     },
-    mobile: {
-      header: '32px',
-      l: '22px',
-      m: '16px',
-    },
   },
 };
